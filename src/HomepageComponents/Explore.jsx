@@ -29,7 +29,7 @@ const Explore = () => {
         
    
   
-        const response = await axios.get('http://localhost:3000/api/users/getpublicstories');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}api/users/getpublicstories`);
   
         console.log("Full All user  Response:", response);
         response.data.stories.forEach(story => {
@@ -75,7 +75,7 @@ const Explore = () => {
 
     const onSearchStory = async () => {
         try { 
-          const response = await axios.get('http://localhost:3000/api/users/search', {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/search`, {
             params: {
               query: searchQuery, // Use searchQuery state variable
             }
@@ -109,7 +109,7 @@ const Explore = () => {
         
         if(startDate && endDate)
         {
-          const response = await axios.get('http://localhost:3000/api/users/filterbydate' , 
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/filterbydate` , 
             {
               
               // this are the parameters that we have give in postman for searching the stories by date

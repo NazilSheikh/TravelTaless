@@ -50,7 +50,7 @@ const [dateRange, setDateRange] = useState({ from: null, to: null });
 
       console.log("Token from Local Storage:", token);
 
-      const response = await axios.get('http://localhost:3000/api/users/get-user', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/get-user`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +90,7 @@ const [dateRange, setDateRange] = useState({ from: null, to: null });
 
       console.log("Token from Local Storage:", token);
 
-      const response = await axios.get('http://localhost:3000/api/users/getalltravelstory', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/getalltravelstory`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -126,7 +126,7 @@ const [dateRange, setDateRange] = useState({ from: null, to: null });
   
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/users/update-isFavorite/${storyId}`,
+        `${import.meta.env.VITE_API_URL}/api/users/update-isFavorite/${storyId}`,
         {
           isFavorite: !storyData.isFavorite,
         },
@@ -186,7 +186,7 @@ const [dateRange, setDateRange] = useState({ from: null, to: null });
         console.log("token not found ! ")
         return ;
       }   
-         await axios.delete(`http://localhost:3000/api/users/delete/${storyId}` , {
+         await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/delete/${storyId}` , {
          headers : {
            Authorization : ` Bearer ${token}`
          },
@@ -246,7 +246,7 @@ const onSearchStory = async () => {
   try {
     let token = localStorage.getItem("token"); 
 
-    const response = await axios.get('http://localhost:3000/api/users/search', {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/search`, {
 
       headers: {
         Authorization: `Bearer ${token}`,
@@ -285,7 +285,7 @@ const filterStoriesByDate = async (day) =>{
   
   if(startDate && endDate)
   {
-    const response = await axios.get('http://localhost:3000/api/users/filterbydate' , 
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/filterbydate` , 
       {
         headers: {
           Authorization: `Bearer ${token}`,

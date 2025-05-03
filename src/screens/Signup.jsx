@@ -18,7 +18,7 @@ export const Signup = () => {
   
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/users/register',
+        `${import.meta.env.VITE_API_URL}/api/users/register`,
         { name, email, password }, //  Ensure all fields are included
         { withCredentials: true } //  Enable cookies if needed
       );

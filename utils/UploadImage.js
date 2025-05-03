@@ -31,7 +31,7 @@ const UploadImage = async (imageFile) => {
     formData.append("image", imageFile);
 
     try {
-        const response = await axios.post("http://localhost:3000/api/users/upload-image", formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/upload-image`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${localStorage.getItem("token")}`,  // Ensure token is present

@@ -90,7 +90,7 @@ const Login = () => {
   e.preventDefault(); // ✅ Prevent form default behavior
   try{
 
-    const {data} = await axios.post('http://localhost:3000/api/users/login' , {email , password}) ;
+    const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/login` , {email , password}) ;
     localStorage.setItem("token" , data.token) ;
     navigate('/profile');
   }

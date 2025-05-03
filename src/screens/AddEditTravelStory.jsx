@@ -80,7 +80,7 @@ const AddEditTravelStory = ({ type, storyInfo, onClose, getAllUserInfo }) => {
             imageUrl = imageUploadRef.imageUrl || "";
         }
 
-        const response = await axios.post('http://localhost:3000/api/users/allrequired', {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/allrequired`, {
           title, 
          
           story, 
@@ -217,7 +217,7 @@ const updateTravelStory = async () => {
     }
 
     const response = await axios.put(
-      `http://localhost:3000/api/users/edit-story/${storyId}`,
+      `${import.meta.env.VITE_API_URL}/api/users/edit-story/${storyId}`,
       postData,
       { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
     );

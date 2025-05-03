@@ -25,7 +25,7 @@ const Home = () => {
       
  
 
-      const response = await axios.get('http://localhost:3000/api/users/getpublicstories');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/getpublicstories`);
 
       console.log("Full All user  Response:", response);
       response.data.stories.forEach(story => {
